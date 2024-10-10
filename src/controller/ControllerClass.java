@@ -4,6 +4,7 @@ import model.ModelClass;
 import model.domain.Student;
 import view.ViewClass;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +20,12 @@ public class ControllerClass {
      */
     private ModelClass model;
     private ViewClass view;
+    /**
+     * Буфер для хранения списка студентов
+     * Для возврата данных через контроллер
+     * (для их последующей обработки и передачи в представление)
+     */
+    private List<Student> studentsBuffer = new ArrayList<>();
 
     /**
      * Конструктор
@@ -32,11 +39,36 @@ public class ControllerClass {
     }
 
     /**
+     * Метод для условного тестирования
+     * Для модели MVP
+     * @return
+     */
+    private boolean testData(List<Student> students) {
+        if (students.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Метод запуска логики
      */
-    public void update() {
-        //MVC
-        view.printAllStudents(model.getStudents());
+    public void update(String Request) {
+//        // MVC (Model View Controller)
+//        // Получение списка студентов на прямую из модели (источника данных)
+//        view.printAllStudents(model.getStudents());
+
+        // MVP (Model View Presenter)
+        // Получение списка студентов через контроллер
+        studentsBuffer = model.getStudents();
+        // Тестирование до вызова представления
+        if (testData(studentsBuffer)) {
+            // Вывод списка студентов представлением
+            view.printAllStudents(studentsBuffer);
+        } else {
+            System.out.println("Нет данных");
+        }
 
     }
 
