@@ -1,5 +1,6 @@
 package controller;
 
+import controller.interfaces.iGetController;
 import controller.interfaces.iGetModel;
 import controller.interfaces.iGetView;
 import model.domain.Student;
@@ -12,7 +13,7 @@ import java.util.List;
  * Связь между моделью и представлением
  * Выполняет выстроенную логику
  */
-public class ControllerClass {
+public class ControllerClass implements iGetController {
 
     /**
      * Поля контроллера

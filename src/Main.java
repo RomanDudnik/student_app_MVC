@@ -42,7 +42,8 @@ public class Main {
         iGetModel model = new ModelClass(listStudents);
 
         // Создание представления
-        iGetView view = new ViewClass();
+//        iGetView view = new ViewClass();
+        ViewClass view = new ViewClass();
 
         // Создание модели(#2) и заполнение её данными из файла
         iGetModel fileModel = new ModelClassFile("StudentDB.csv");
@@ -53,8 +54,13 @@ public class Main {
 //        // Запуск логики
 //        controller.update("Запрос от клиента");
 
-        // Запуск программы в итеративном режиме консоли
-        controller.run();
+//        // Запуск программы в итеративном режиме консоли
+//        controller.run();
+
+        // установка связи между контроллером и представлением
+        view.setController(controller);
+        // запуск логики контроллера через представление
+        view.ViewRun();
 
     }
 }

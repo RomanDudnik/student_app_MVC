@@ -1,5 +1,6 @@
 package view;
 
+import controller.interfaces.iGetController;
 import controller.interfaces.iGetView;
 import model.domain.Student;
 
@@ -10,6 +11,21 @@ import java.util.Scanner;
  * Класс для представления (отображения данных)
  */
 public class ViewClass implements iGetView {
+
+    /**
+     * Поле
+     * Ссылка для связи между контроллером и представлением
+     * Через интерфейс iGetController
+     */
+    private iGetController controller;
+
+    /**
+     * Сеттер для установки связи между контроллером и представлением
+     * @param controller
+     */
+    public void setController(iGetController controller) {
+        this.controller = controller;
+    }
 
     /**
      * Метод для вывода списка студентов
@@ -34,8 +50,10 @@ public class ViewClass implements iGetView {
         return in.nextLine();
     }
 
-//    public void ViewRun()
-//    {
-//        contr.run();
-//    }
+    /**
+     * Метод запуска представления
+     */
+    public void ViewRun() {
+        controller.run();
+    }
 }
