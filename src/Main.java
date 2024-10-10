@@ -1,6 +1,7 @@
 import controller.ControllerClass;
 import controller.interfaces.iGetModel;
 import controller.interfaces.iGetView;
+import model.ModelClassFile;
 import model.domain.Student;
 import model.ModelClass;
 import view.ViewClass;
@@ -33,19 +34,21 @@ public class Main {
         listStudents.add(student5);
         listStudents.add(student6);
         listStudents.add(student7);
-        listStudents.add(student7);
         listStudents.add(student8);
         listStudents.add(student9);
         listStudents.add(student10);
 
-        // Создание модели и заполнение её данными
+        // Создание модели(#1) и заполнение её данными
         iGetModel model = new ModelClass(listStudents);
 
         // Создание представления
         iGetView view = new ViewClass();
 
+        // Создание модели(#2) и заполнение её данными из файла
+        iGetModel fileModel = new ModelClassFile("StudentDB.csv");
+
         // Создание контроллера и передача ему модели и представления
-        ControllerClass controller = new ControllerClass(model, view);
+        ControllerClass controller = new ControllerClass(fileModel, view);
 
         // Запуск логики
         controller.update("Запрос от клиента");
