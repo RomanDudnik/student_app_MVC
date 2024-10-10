@@ -2,9 +2,7 @@ package controller;
 
 import controller.interfaces.iGetModel;
 import controller.interfaces.iGetView;
-import model.ModelClass;
 import model.domain.Student;
-import view.ViewClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +71,30 @@ public class ControllerClass {
             System.out.println("Нет данных");
         }
 
+    }
+
+    /**
+     * Метод для запуска программы в итеративном режиме консоли
+     */
+    public void run()
+    {
+        Command com = (Command)Command.NONE;
+        boolean getNewIter = true;
+        while(getNewIter)
+        {
+            String command = view.prompt("Введите команду:");
+            com = Command.valueOf(command.toUpperCase());
+            switch(com)
+            {
+                case EXIT:
+                    getNewIter = false;
+                    System.out.println("Выход из программы");
+                    break;
+                case LIST:
+                    view.printAllStudents(model.getStudents());
+                    break;
+            }
+        }
     }
 
 }

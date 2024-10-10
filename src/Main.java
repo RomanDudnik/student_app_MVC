@@ -50,8 +50,11 @@ public class Main {
         // Создание контроллера и передача ему модели и представления
         ControllerClass controller = new ControllerClass(fileModel, view);
 
-        // Запуск логики
-        controller.update("Запрос от клиента");
+//        // Запуск логики
+//        controller.update("Запрос от клиента");
+
+        // Запуск программы в итеративном режиме консоли
+        controller.run();
 
     }
 }

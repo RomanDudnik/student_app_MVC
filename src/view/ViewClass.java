@@ -4,6 +4,7 @@ import controller.interfaces.iGetView;
 import model.domain.Student;
 
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Класс для представления (отображения данных)
@@ -21,4 +22,20 @@ public class ViewClass implements iGetView {
         }
         System.out.println("----------------------------------");
     }
+
+    /**
+     * Метод запроса данных с консоли
+     * @param msg
+     * @return
+     */
+    public String prompt(String msg) {
+        Scanner in = new Scanner(System.in);
+        System.out.println(msg);
+        return in.nextLine();
+    }
+
+//    public void ViewRun()
+//    {
+//        contr.run();
+//    }
 }
