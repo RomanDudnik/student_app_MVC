@@ -1,5 +1,6 @@
 package model;
 
+import controller.interfaces.iGetModel;
 import model.domain.Student;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  * Для хранения данных
  * Список студентов
  */
-public class ModelClass {
+public class ModelClass implements iGetModel {
     /**
      * Поле для хранения списка студентов
      * Хранилище в виде списка

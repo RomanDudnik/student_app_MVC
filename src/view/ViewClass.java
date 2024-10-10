@@ -1,5 +1,6 @@
 package view;
 
+import controller.interfaces.iGetView;
 import model.domain.Student;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 /**
  * Класс для представления (отображения данных)
  */
-public class ViewClass {
+public class ViewClass implements iGetView {
 
     /**
      * Метод для вывода списка студентов

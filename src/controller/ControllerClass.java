@@ -1,5 +1,7 @@
 package controller;
 
+import controller.interfaces.iGetModel;
+import controller.interfaces.iGetView;
 import model.ModelClass;
 import model.domain.Student;
 import view.ViewClass;
@@ -17,9 +19,10 @@ public class ControllerClass {
     /**
      * Поля контроллера
      * Для связи между моделью и представлением
+     * Через интерфейсы для разграничения моодулей (архитектурные границы)
      */
-    private ModelClass model;
-    private ViewClass view;
+    private iGetModel model;
+    private iGetView view;
     /**
      * Буфер для хранения списка студентов
      * Для возврата данных через контроллер
@@ -33,7 +36,7 @@ public class ControllerClass {
      * @param model
      * @param view
      */
-    public ControllerClass(ModelClass model, ViewClass view) {
+    public ControllerClass(iGetModel model, iGetView view) {
         this.model = model;
         this.view = view;
     }

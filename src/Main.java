@@ -1,4 +1,6 @@
 import controller.ControllerClass;
+import controller.interfaces.iGetModel;
+import controller.interfaces.iGetView;
 import model.domain.Student;
 import model.ModelClass;
 import view.ViewClass;
@@ -37,10 +39,10 @@ public class Main {
         listStudents.add(student10);
 
         // Создание модели и заполнение её данными
-        ModelClass model = new ModelClass(listStudents);
+        iGetModel model = new ModelClass(listStudents);
 
         // Создание представления
-        ViewClass view = new ViewClass();
+        iGetView view = new ViewClass();
 
         // Создание контроллера и передача ему модели и представления
         ControllerClass controller = new ControllerClass(model, view);
