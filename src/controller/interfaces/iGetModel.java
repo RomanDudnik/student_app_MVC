@@ -13,5 +13,4 @@ public interface iGetModel {
 
     public void deleteStudent(int i);
 
-    public void addStudent(Student student);
-}
+  }

@@ -1,6 +1,5 @@
 import controller.ControllerClass;
 import controller.interfaces.iGetModel;
-import controller.interfaces.iGetView;
 import model.ModelClassFile;
 import model.ModelClassHash;
 import model.domain.Student;
@@ -8,6 +7,7 @@ import model.ModelClass;
 import view.ViewClass;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Main {
@@ -27,9 +27,6 @@ public class Main {
         // Создание списка студентов
         List<Student> listStudents = new ArrayList<>();
 
-        // Создание списка студентов HashMap
-
-
         // Добавление студентов в список
         listStudents.add(student1);
         listStudents.add(student2);
@@ -42,6 +39,21 @@ public class Main {
         listStudents.add(student9);
         listStudents.add(student10);
 
+        // Создание мапы студентов HashMap
+        HashMap<Integer, Student> studentsHashMap = new HashMap<>();
+
+        // Добавление студентов в мапу
+        studentsHashMap.put(0, student1);
+        studentsHashMap.put(1, student2);
+        studentsHashMap.put(2, student3);
+        studentsHashMap.put(3, student4);
+        studentsHashMap.put(4, student5);
+        studentsHashMap.put(5, student6);
+        studentsHashMap.put(6, student7);
+        studentsHashMap.put(7, student8);
+        studentsHashMap.put(8, student9);
+        studentsHashMap.put(9, student10);
+
         // Создание модели(#1) и заполнение её данными
         iGetModel model = new ModelClass(listStudents);
 
@@ -49,18 +61,7 @@ public class Main {
         iGetModel fileModel = new ModelClassFile("StudentDB.csv");
 
         // Создание модели(#3)
-        iGetModel modelHash = new ModelClassHash();
-        // Добавление студентов в хранилище модели #3 (Hash)
-        modelHash.addStudent(student1);
-        modelHash.addStudent(student2);
-        modelHash.addStudent(student3);
-        modelHash.addStudent(student4);
-        modelHash.addStudent(student5);
-        modelHash.addStudent(student6);
-        modelHash.addStudent(student7);
-        modelHash.addStudent(student8);
-        modelHash.addStudent(student9);
-        modelHash.addStudent(student10);
+        iGetModel modelHash = new ModelClassHash(studentsHashMap);
 
         // Создание представления
 //        iGetView view = new ViewClass();

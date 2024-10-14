@@ -23,16 +23,8 @@ public class ModelClassHash implements iGetModel {
      * Конструктор
      * Для инициализации (получение данных из вне)
      */
-    public ModelClassHash() {
-        this.students = new HashMap<>();
-    }
-
-    /**
-     * Метод для добавления студента в хранилище
-     * @param student
-     */
-    public void addStudent(Student student) {
-        students.put(student.getId(), student);
+    public ModelClassHash(HashMap<Integer, Student> students) {
+        this.students = students;
     }
 
     /**
