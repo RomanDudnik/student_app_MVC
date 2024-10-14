@@ -33,6 +33,7 @@ public class ViewClass implements iGetView {
      */
     public void printAllStudents(List<Student> students) {
         System.out.println("----------------------------------");
+        System.out.println("Список студентов:");
         for (Student student : students) {
             System.out.println(student);
         }
