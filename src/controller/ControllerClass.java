@@ -79,12 +79,20 @@ public class ControllerClass implements iGetController {
      */
     public void run()
     {
+        // Переменная для хранения команды
         Command com = (Command)Command.NONE;
+        // Переменная для выхода из цикла
         boolean getNewIter = true;
+        // Запуск цикла ввода команд
         while(getNewIter)
         {
             String command = view.prompt("Введите команду:");
-            com = Command.valueOf(command.toUpperCase());
+            try {
+                com = Command.valueOf(command.toUpperCase());
+            } catch (IllegalArgumentException e) {
+                System.out.println("Ошибка: неверная команда. Доступные команды: EXIT, LIST, DELETE");
+                continue;
+            }
             switch(com)
             {
                 case EXIT:
@@ -96,7 +104,17 @@ public class ControllerClass implements iGetController {
                     break;
                 case DELETE:
                     System.out.println("введите номер студента для удаления:");
-                    model.deleteStudent(Integer.parseInt(view.prompt("")));
+                    String input = view.prompt("");
+                    try {
+                        int id = Integer.parseInt(input);
+                        if (model.getStudents().stream().anyMatch(s -> s.getId() == id)) {
+                            model.deleteStudent(id);
+                        } else {
+                            System.out.println("Ошибка: студент не найден");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Ошибка: неверный формат ввода");
+                    }
                     break;
             }
         }

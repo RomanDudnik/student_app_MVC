@@ -75,6 +75,20 @@ public class ModelClassFile implements iGetModel {
     }
 
     /**
+     * Метод для добавления студента
+     * @param student
+     */
+    @Override
+    public void addStudent(Student student) {
+        // Добавление студента в файл
+        try (FileWriter fw = new FileWriter(fileName, true)) {
+            fw.write(student.getName() + " " + student.getAge() + "\n");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
      * Метод для удаления студента
      * по id
      * @param i
@@ -94,6 +108,8 @@ public class ModelClassFile implements iGetModel {
         // Сохранение в файл
         saveAllStudentToFile(students);
     }
+
+
 
     /**
      * Метод для сохранения списка студентов в файл

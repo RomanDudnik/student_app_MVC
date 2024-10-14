@@ -53,4 +53,9 @@ public class ModelClass implements iGetModel {
             }
         }
     }
+
+    @Override
+    public void addStudent(Student student) {
+        students.add(student);
+    }
 }
