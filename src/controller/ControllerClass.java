@@ -94,6 +94,10 @@ public class ControllerClass implements iGetController {
                 case LIST:
                     view.printAllStudents(model.getStudents());
                     break;
+                case DELETE:
+                    System.out.println("введите номер студента для удаления:");
+                    model.deleteStudent(Integer.parseInt(view.prompt("")));
+                    break;
             }
         }
     }

@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface iGetModel {
     public List<Student> getStudents();
+
+    public void deleteStudent(int i);
 }

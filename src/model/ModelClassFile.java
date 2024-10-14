@@ -75,6 +75,27 @@ public class ModelClassFile implements iGetModel {
     }
 
     /**
+     * Метод для удаления студента
+     * по id
+     * @param i
+     */
+    @Override
+    public void deleteStudent(int i) {
+        // Получение списка студентов
+        List<Student> students = getStudents();
+        // Удаление студента по id
+//        students.removeIf(student -> student.getId() == i);
+        for (Student student : students) {
+            if (student.getId() == i) {
+                students.remove(student);
+                break;
+            }
+        }
+        // Сохранение в файл
+        saveAllStudentToFile(students);
+    }
+
+    /**
      * Метод для сохранения списка студентов в файл
      * @param students
      */

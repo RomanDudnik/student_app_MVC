@@ -33,4 +33,24 @@ public class ModelClass implements iGetModel {
     public  List<Student> getStudents() {
         return students;
     }
+
+    /**
+     * Метод для удаления студента
+     * по индексу
+     * @param i
+     */
+    @Override
+    public void deleteStudent(int i) {
+        // Проход по списку студентов
+        for (Student student : students) {
+            // Если индекс совпадает
+            if (student.getId() == i) {
+                // Удаляем студента
+                students.remove(student);
+                // Выход из цикла
+                // т.к. студент был удален
+                break;
+            }
+        }
+    }
 }
